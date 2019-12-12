@@ -23,7 +23,7 @@ create table Hiring_Event_Data (
   ending_date_time text,
   job_role text,
   minimum_experience text,
-  skills text
+  salary text
 );
 
 drop table if exists Coding_Event_Data ;
