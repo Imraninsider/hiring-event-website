@@ -19,6 +19,7 @@ def hackerearth_events(event_list):
         if i['title'] not in event_list:
             event_list.append(i['title'])
             
+            #for hiring event
             if i['challenge_type']=="Hiring Challenges":
             #dataset for data import in database
                 dataset = []
@@ -38,6 +39,23 @@ def hackerearth_events(event_list):
                 #Push into DB Table
                 import_to_database.insert_in_database("INSERT INTO Hiring_Event_Data (hosting_website,event_name,event_url,starting_date_time,ending_date_time,job_role, minimum_experience,salary) VALUES (?,?,?,?,?,?,?,?)",dataset)
                 print("inserted event: ", i['title'])
+
+            #for coding event
+            if i['challenge_type']=="Monthly Challenges":
+            #dataset for data import in database
+                dataset = []
+                dataset.append("hacker earth")
+                dataset.append(i['title'])# event_name = i['title']
+                dataset.append(i['url'])  # event_url = str(i['url'])
+                dataset.append(i['start_utc_tz'])# starting_date_time = str(i['start_utc_tz']),
+                dataset.append(i['end_utc_tz'])# ending_date_time =  i['end_utc_tz']
+                dataset.append("All")#difficulty
+                dataset.append("C,C++,Java,python")#supported language
+                #Push into DB Table
+                import_to_database.insert_in_database("INSERT INTO Coding_Event_Data (hosting_website,event_name,event_url,starting_date_time,ending_date_time, difficulty,supported_language) VALUES (?,?,?,?,?,?,?)",dataset)
+                print("inserted event: ", i['title'])
+   
+   
     # for deleting item from list which is not in the current hacker earth json file
     for i in event_list:
         if i not in current_event_list:

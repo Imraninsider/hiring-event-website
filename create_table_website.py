@@ -32,11 +32,8 @@ create table Coding_Event_Data (
   hosting_website text,
   event_name text,
   event_url,
-  event_id text,
-  starting_date text,
-  starting_time text,
-  ending_date text,
-  ending_time text,
+  starting_date_time text,
+  ending_date_time text,
   difficulty text,
   supported_language text
 );
