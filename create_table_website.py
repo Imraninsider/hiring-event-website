@@ -1,11 +1,3 @@
-#------------------------------------------
-#--- Author: 
-#--- Date: 8th July 2019
-#--- Version: 1.0
-#--- Python Ver: 2.7
-#--- Details At: https://iotbytes.wordpress.com/store-mqtt-data-from-sensors-into-sql-database/
-#------------------------------------------
-
 import sqlite3
 
 # SQLite DB Name
@@ -36,6 +28,35 @@ create table Coding_Event_Data (
   ending_date_time text,
   difficulty text,
   supported_language text
+);
+
+DROP TABLE if exists TechGig_Coding_Event_Data ;
+CREATE TABLE TechGig_Coding_Event_Data (
+  id INTEGER PRIMARY KEY AUTOINCREMENT, 
+  hosting_website TEXT, 
+  event_name TEXT, 
+  event_type TEXT, 
+  event_url TEXT, 
+  starting_date_time TEXT, 
+  ending_date_time TEXT, 
+  contest_prize TEXT, 
+  skill_required TEXT 
+);
+
+DROP TABLE if exists TechGig_Hiring_Event_Data ;
+CREATE TABLE "TechGig_Hiring_Event_Data" ( 
+  id INTEGER PRIMARY KEY AUTOINCREMENT, 
+  hosting_website TEXT, 
+  event_name TEXT, 
+  event_type TEXT, 
+  event_url TEXT, 
+  starting_date_time TEXT, 
+  ending_date_time TEXT, 
+  job_role TEXT, 
+  skill_required TEXT, 
+  minimum_experience TEXT, 
+  job_salary TEXT, 
+  job_location TEXT 
 );
 
 """
